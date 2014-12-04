@@ -3,11 +3,7 @@
 // 定義變數
 $group_number    = $_POST['group_number'] ? $_POST['group_number'] : '1';
 $password_length = $_POST['password_length'] ? $_POST['password_length'] : '1';
-$have_number     = $_POST['have_number'] ? true : false;
-$have_upper      = $_POST['have_upper'] ? true : false;
-$have_lower      = $_POST['have_lower'] ? true : false;
-$have_symbol     = $_POST['have_symbol'] ? true : false;
-$no_similarity   = $_POST['no_similarity'] ? true : false;
+
 $password_group  = '';
 $results         = array();
 

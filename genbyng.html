@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="genpwApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>密碼產生器</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/angular.1.3.5.min.js"></script>
+    <script src="js/app.js"></script>
+</head>
+<body>
+<div class="container" ng-controller="genpw">
+    <div class="page-header">
+      <h1>密碼產生器 <small>Generate Password</small></h1>
+    </div>
+    <form class="form-horizontal" role="form" method="POST">
+        <div class="form-group form-group-sm">
+            <label for="group_number" class="col-sm-2 control-label">組數：</label>
+            <div class="col-sm-2">
+                <input type="number" name="group_number" class="form-control" id="group_number" placeholder="組數" min="1" ng-model="group_number" ng-change="generate()">
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <label for="password_length" class="col-sm-2 control-label">長度：</label>
+            <div class="col-sm-2">
+                <input type="number" name="password_length" class="form-control" id="password_length" placeholder="長度" min='1' ng-model="password_length" ng-change="generate()">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-10">
+                <hr>
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <label for="have_number" class="col-sm-2 control-label">數字：</label>
+            <div class="checkbox col-sm-10">
+                <label>
+                    <input id="have_number" name="have_number" type="checkbox" ng-model="have_number" ng-change="generate()">（0123456789）
+                </label>
+            </div>
+            <label for="have_upper" class="col-sm-2 control-label">大寫字母：</label>
+            <div class="checkbox col-sm-10">
+                <label>
+                    <input id="have_upper" name="have_upper" type="checkbox" ng-model="have_upper" ng-change="generate()">（ABCDEFGHIJKLMNOPQRSTUVWXYZ）
+                </label>
+            </div>
+            <label for="have_lower" class="col-sm-2 control-label">小寫字母：</label>
+            <div class="checkbox col-sm-10">
+                <label>
+                    <input id="have_lower" name="have_lower" type="checkbox" ng-model="have_lower" ng-change="generate()">（abcdefghijklmnopqrstuvwxyz）
+                </label>
+            </div>
+            <label for="have_symbol" class="col-sm-2 control-label">特殊字元：</label>
+            <div class="checkbox col-sm-10">
+                <label>
+                    <input id="have_symbol" name="have_symbol" type="checkbox" ng-model="have_symbol" ng-change="generate()">（!@#$%^&*）
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-10">
+                <hr>
+            </div>
+        </div>
+        <div class="form-group form-group-sm">
+            <label for="no_similarity" class="col-sm-2 control-label">去除相似字型：</label>
+            <div class="checkbox col-sm-10">
+                <label>
+                    <input id="no_similarity" name="no_similarity" type="checkbox" ng-model="no_similarity" ng-change="generate()">（!.1.l.I.o.O.0）
+                </label>
+            </div>
+        </div>
+    </form>
+    <div class="row">
+        <div class="col-sm-offset-1 col-sm-10" ng-repeat="result in results">
+            <p>{{ result }}</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
